@@ -1,42 +1,88 @@
+"""Lambda function to manage users information"""
+
 import json
 
-# import requests
+users = [
+    {
+        "id": 1,
+        "name": "Alejandro",
+        "last_name": "Perez",
+        "role": "Admin",
+        "email": "alex@gmail.com",
+        "password": "C+I3N5HYBB9akVejtdfrXPMoLo4PnH9S7+vb4AZ3KWTi6BwsoQ==="
+    },
+    {
+        "id": 2,
+        "name": "Testing",
+        "last_name": "Rodriguez",
+        "role": "Admin",
+        "email": "testing@gmail.com",
+        "password": "3aB1ZNM0nsOptY+LvMjfDheOJLwyW3Rcz9RbpIEytT5H7VEn8Q8w=="
+    },
+    {
+        "id": 3,
+        "name": "Mariana",
+        "last_name": "Gonzalez",
+        "role": "Admin",
+        "email": "maring@gmail.com",
+        "password": "jth7qUkpZ1/bcF66fHZSjNr+Atk+dIy4TpRn2Y1gTYdKqnEFddM7Q=="
+    },
+    {
+        "id": 4,
+        "name": "Gonzalo",
+        "last_name": "Lezama",
+        "role": "Admin",
+        "email": "gonz@gmail.com",
+        "password": "jTZMVkJ+vbqNCOFd7xiMba42o1JrF1fkOOkPr2zSvx0oA/l9GH3OA=="
+    }
+]
 
 
-def lambda_handler(event, context):
-    """Sample pure Lambda function
-
-    Parameters
-    ----------
-    event: dict, required
-        API Gateway Lambda Proxy Input Format
-
-        Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
-
-    context: object, required
-        Lambda Context runtime methods and attributes
-
-        Context doc: https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html
-
-    Returns
-    ------
-    API Gateway Lambda Proxy Output Format: dict
-
-        Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
+def get_users(event, context):
     """
-
-    # try:
-    #     ip = requests.get("http://checkip.amazonaws.com/")
-    # except requests.RequestException as e:
-    #     # Send some context about this error to Lambda Logs
-    #     print(e)
-
-    #     raise e
+    Lambda function to return all registered radionet users
+    """
 
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "hello world",
+            "response": users
+        }),
+    }
+
+
+def get_user(event, context):
+    """
+    Lambda function to return a user by id
+    """
+
+    user_loc = [element for element in users if element['name'] == "Alejandro"]
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "message": user_loc
+        }),
+    }
+
+
+def insert_user(event, context):
+    """
+    Lambda function to insert a new user
+    """
+
+    http_body = event['body']
+    name = http_body["name"]
+    last_name = http_body["last_name"]
+    role = http_body["role"]
+    email = http_body["email"]
+    password = http_body["password"]
+
+    #name = "test"
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "message": "User inserted correctly",
             # "location": ip.text.replace("\n", "")
         }),
     }
