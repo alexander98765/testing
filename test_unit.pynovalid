@@ -1,0 +1,4 @@
+from hello_world import app
+
+def test_example():
+    assert 'semaphore' == 'Semaphore'
