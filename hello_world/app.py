@@ -78,7 +78,12 @@ def insert_user(event, context):
     email = http_body["email"]
     password = http_body["password"]
 
-    #name = "test"
+    name = name.lower()
+    last_name = last_name.lower()
+    role = role.lower()
+    email = email.lower()
+    password = password.lower()
+
     return {
         "statusCode": 200,
         "body": json.dumps({
