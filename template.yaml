@@ -21,7 +21,7 @@ Resources:
   GetUsersFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: hello_world/
+      CodeUri: service/
       Handler: app.get_users
       Runtime: python3.8
       Architectures:
@@ -35,7 +35,7 @@ Resources:
   GetUserFuntion:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: hello_world/
+      CodeUri: service/
       Handler: app.test_fun
       Runtime: python3.8
       Architectures:
@@ -49,7 +49,7 @@ Resources:
   InsertUserFuntion:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: hello_world/
+      CodeUri: service/
       Handler: app.insert_user
       Runtime: python3.8
       Architectures:
