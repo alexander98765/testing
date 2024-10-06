@@ -5,6 +5,8 @@ Microservice in python to manage radionets users information
 
 import json
 
+Alex = ""
+
 """Users information"""
 users = [
     {
