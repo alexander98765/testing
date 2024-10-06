@@ -87,7 +87,8 @@ def insert_user(event, context):
     role = role.lower()
     email = email.lower()
     password = password.lower()
-
+    alex = ""
+    
     return {
         "statusCode": 200,
         "body": json.dumps({
