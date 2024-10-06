@@ -1,6 +1,6 @@
 """
 Lambda function to manage users information
-Microservice in python to manage radionets users information
+Microservice in python to manage radionets users information.
 """
 
 import json
