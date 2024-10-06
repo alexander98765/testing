@@ -1,3 +1,5 @@
+#YAML template to enforce branches merging
+#Only master branch can merge into production branche
 name: 'Check Branches'
 
 on:
