@@ -1,3 +1,6 @@
+#YAML template to validate ode standards.
+#Flake8 library is used to perform code review
+#PEP8 standars must be accomplish
 name: Code validation PEP8
 
 on:

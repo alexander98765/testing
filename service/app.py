@@ -1,7 +1,11 @@
-"""Lambda function to manage users information"""
+"""
+Lambda function to manage users information
+Microservice in python to manage radionets users information
+"""
 
 import json
 
+"""Users information"""
 users = [
     {
         "id": 1,
@@ -87,7 +91,6 @@ def insert_user(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": "User inserted correctly",
-            # "location": ip.text.replace("\n", "")
+            "message": "User inserted correctly"
         }),
     }
