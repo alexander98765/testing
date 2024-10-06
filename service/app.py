@@ -74,7 +74,7 @@ def insert_user(event, context):
     """
     Lambda function to insert a new user
     """
-
+    alex = ""
     http_body = event['body']
     name = http_body["name"]
     last_name = http_body["last_name"]
